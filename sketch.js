@@ -35,11 +35,11 @@ function setup(){
     Box9 = new Box(350, 255, 32, 40)
 
    
-    Polygon = Bodies.circle(100, 270, 10);
+    Polygon = Bodies.circle(150, 270, 10);
     World.add(world, Polygon);
     
 
-    Slingshot1 = new Slingshot(this.Polygon, {x: 100, y:270})
+    Slingshot1 = new Slingshot(this.Polygon, {x: 150, y:270})
     
 
 }
@@ -83,4 +83,11 @@ function mouseDragged(){
 }
 function mouseReleased(){
     Slingshot1.fly();
+}
+
+function keyPressed(){
+	if(keyCode === 32){
+		Matter.Body.setPosition(this.Polygon, {x:150, y:270});
+		Slingshot1.attach(Polygon)
+	}
 }
