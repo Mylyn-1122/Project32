@@ -10,6 +10,13 @@ class Box{
         this.image = loadImage("wood1.png")
         this.visibility = 255;
       }
+
+      score(){
+        if (this.visiblity < 100 && this.visibility > -100){
+          Score++;
+        }
+      }
+
       display(){
         if(this.body.speed < 3){
           push();

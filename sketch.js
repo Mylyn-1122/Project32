@@ -6,7 +6,8 @@ const Constraint = Matter.Constraint;
 var engine, world;
 var backgroundImg;
 
-
+var Score = 0;
+var bg = 0
 
 function preload() {
 
@@ -42,15 +43,29 @@ function setup(){
     Slingshot1 = new Slingshot(this.Polygon, {x: 150, y:270})
     
 
+    
 }
 
 function draw(){
-    background(200);
+    background(bg);
     Engine.update(engine);
-
-
+    fill(255)
+    text("score :" + Score, 750, 40)
+    //console.log(Box1.visibility)
+    //console.log(Score)
     //console.log(Polygon);
     
+    
+    Box1.score();
+    Box2.score();
+    Box3.score();
+    Box4.score();
+    Box5.score();
+    Box6.score();
+    Box7.score();
+    Box8.score();
+    Box9.score();
+
     push();
     fill(color(152, 221, 252));
     Box1.display();
@@ -77,7 +92,7 @@ function draw(){
 
     Ground1.display();
 }
-//this is where the problem seems to happen for project 19
+
 function mouseDragged(){
     Matter.Body.setPosition(this.Polygon, { x: mouseX, y:  mouseY })
 }
@@ -91,3 +106,17 @@ function keyPressed(){
 		Slingshot1.attach(Polygon)
 	}
 }
+
+async function getBackgroundImg(){
+    var response = await fetch("http://worldtimeapi.org/api/timezone/America/Los_Angeles")
+    var responsejson = await response.json()
+    var datetime = responsejson.datetime;
+    var hour = datetime.slice(11, 13);
+    if (hour >= 06 && hour <= 18){
+        bg = 225
+    }
+    else {
+        bg = 0
+    }
+}
+
