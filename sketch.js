@@ -50,21 +50,13 @@ function draw(){
     background(bg);
     Engine.update(engine);
     fill(255)
-    text("score :" + Score, 750, 40)
+    
     //console.log(Box1.visibility)
     //console.log(Score)
     //console.log(Polygon);
     
+    text("score :" + Score, 750, 40);
     
-    Box1.score();
-    Box2.score();
-    Box3.score();
-    Box4.score();
-    Box5.score();
-    Box6.score();
-    Box7.score();
-    Box8.score();
-    Box9.score();
 
     push();
     fill(color(152, 221, 252));
@@ -87,10 +79,22 @@ function draw(){
     Box9.display();
     pop();
 
+    Box1.score();
+    Box2.score();
+    Box3.score();
+    Box4.score();
+    Box5.score();
+    Box6.score();
+    Box7.score();
+    Box8.score();
+    Box9.score();
+
     ellipseMode(RADIUS);
     ellipse(Polygon.position.x, Polygon.position.y, 10, 10)
 
     Ground1.display();
+
+    
 }
 
 function mouseDragged(){
